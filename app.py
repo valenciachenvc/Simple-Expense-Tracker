@@ -1,8 +1,20 @@
 import os
 file = "expenses.txt"
-expenses_list = [
-    {"Date": "2024-12-20", "Description": "Lunch", "Amount": 50}
-]
+expenses_list = []
+
+with open("expenses.txt") as f:
+    for line in f:
+        date, description, amount = [
+            x.strip() for x in line.strip().split(",")]
+        expenses_list.append(
+            {"Date": date, "Description": description, "Amount": int(amount)})
+
+
+def savefile():
+    with open("expenses.txt", "w") as f:
+        for item in expenses_list:
+            f.write(
+                f"{item['Date']}, {item['Description']}, {item['Amount']}\n")
 
 
 while True:
@@ -22,12 +34,13 @@ Simple Expense Tracker
                        "Description": description,
                        "Amount": amount}
         expenses_list.append(new_expense)
+        savefile()
         print("Expense added succesfully!")
 
     elif x == "2":
         print("Expense History: ")
-        f = open(file)
-        print(f.read())
+        for e in expenses_list:
+            print(f"{e['Date']}, {e['Description']}, {e['Amount']}")
 
     elif x == "3":
         print("Calculating Total Expenses...")
