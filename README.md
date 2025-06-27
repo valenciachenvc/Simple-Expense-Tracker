@@ -19,10 +19,9 @@ Main Features
 File Format
 ----------------------------------------------------
 The data is stored in a file named expenses.txt.
-Each line in the file represents an expense in the following format:
-Date, Description, Amount
-2024-12-20, Lunch, 50
-2024-12-20, Groceries, 150
+Each line in the file represents an expense in the following format: Date, Description, Amount
+- 2024-12-20, Lunch, 50
+- 2024-12-20, Groceries, 150
 
 
 Implementation Steps
